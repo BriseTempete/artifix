@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice 4.0.0  (Win32)">
+	<META NAME="AUTHOR" CONTENT="Ewen Dantec">
+	<META NAME="CREATED" CONTENT="20160727;19354628">
+	<META NAME="CHANGEDBY" CONTENT="Ewen Dantec">
+	<META NAME="CHANGED" CONTENT="20160727;19362798">
+	<STYLE TYPE="text/css">
+	<!--
+		PRE.cjk { font-family: "NSimSun", monospace }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="fr-FR" DIR="LTR">
+<PRE CLASS="western">&lt;h1&gt;{{ question.question_text }}&lt;/h1&gt;
+
+&lt;ul&gt;
+{% for choice in question.choice_set.all %}
+    &lt;li&gt;{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}&lt;/li&gt;
+{% endfor %}
+&lt;/ul&gt;
+
+&lt;a href=&quot;{% url 'polls:detail' question.id %}&quot;&gt;Vote again?&lt;/a&gt;</PRE><P>
+<BR><BR>
+</P>
+</BODY>
+</HTML>

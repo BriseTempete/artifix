@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice 4.0.0  (Win32)">
+	<META NAME="CREATED" CONTENT="20090416;11320264">
+	<META NAME="CHANGEDBY" CONTENT="Ewen Dantec">
+	<META NAME="CHANGED" CONTENT="20160727;19221163">
+	<META NAME="Info 1" CONTENT="">
+	<META NAME="Info 2" CONTENT="">
+	<META NAME="Info 3" CONTENT="">
+	<META NAME="Info 4" CONTENT="">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { margin: 2cm }
+		P { so-language: zxx }
+		PRE.cjk { font-family: "NSimSun", monospace }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="de-DE" DIR="LTR">
+<PRE CLASS="western">&lt;h1&gt;{{ question.question_text }}&lt;/h1&gt;
+
+{% if error_message %}&lt;p&gt;&lt;strong&gt;{{ error_message }}&lt;/strong&gt;&lt;/p&gt;{% endif %}
+
+&lt;form action=&quot;{% url 'polls:vote' question.id %}&quot; method=&quot;post&quot;&gt;
+{% csrf_token %}
+{% for choice in question.choice_set.all %}
+    &lt;input type=&quot;radio&quot; name=&quot;choice&quot; id=&quot;choice{{ forloop.counter }}&quot; value=&quot;{{ choice.id }}&quot; /&gt;
+    &lt;label for=&quot;choice{{ forloop.counter }}&quot;&gt;{{ choice.choice_text }}&lt;/label&gt;&lt;br /&gt;
+{% endfor %}
+&lt;input type=&quot;submit&quot; value=&quot;Vote&quot; /&gt;
+&lt;/form&gt;
+</PRE>
+</BODY>
+</HTML>
